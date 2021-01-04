@@ -13,21 +13,15 @@ import traceback
 
 app = Flask(__name__)
 
+
 def start_selenium():
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
     options.add_argument('--no-sandbox')
+    options.add_argument("--headless")
     options.add_argument('--disable-gpu')
     options.add_argument('--disable-dev-shm-usage')
-    options.add_experimental_option('prefs', {
-        'credentials_enable_service': False,
-        'profile': {
-            'password_manager_enabled': False,
-        },
-        "download": {
-            'default_directory': "/usr/local/download",
-        }
-    })
+    options.add_experimental_option('excludeSwitches', ['enable-automation'])
+    options.add_experimental_option('prefs', {'credentials_enable_service': False, 'profile': {'password_manager_enabled': False,}, "download": {'default_directory': "/usr/local/download",}})
     driver = webdriver.Chrome(options=options)
     return driver
 
@@ -79,7 +73,6 @@ def get_recharge_json():
 
 def recharge(account, password, amount, pwd):
     try:
-        print(account, password, amount, pwd)
         driver = start_selenium()
         ticket = main.doLogin(account, password, "http://ecard.m.hust.edu.cn/wechat-web/service/card_recharge.html")
         driver.get(ticket)
@@ -91,6 +84,8 @@ def recharge(account, password, amount, pwd):
             WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'aqita')))
 
         result_1 = "<h1>当前余额：" + driver.find_element_by_xpath('//div[@class="wrapper"]/section/dl[2]/dd/div/span').text + "</h1>"
+        print(result_1)
+
         driver.find_element_by_id('aqita').click()
         time.sleep(0.5)
         driver.find_element_by_id('value').send_keys(str(amount))
@@ -100,12 +95,13 @@ def recharge(account, password, amount, pwd):
         qrcz = driver.find_element_by_id('qrcz')
         webdriver.ActionChains(driver).move_to_element(qrcz).click(qrcz).perform()
 
-        WebDriverWait(driver, 10).until(EC.alert_is_present())
-        time.sleep(0.5)
-        alter = driver.switch_to.alert
-        result_2 = "<h1>" + alter.text + "</h1>"
-        alter.accept()
-        return result_1 + result_2
+        driver.execute_script("window.confirm = function(){return true;}");
+        # WebDriverWait(driver, 10).until(EC.alert_is_present())
+        # time.sleep(0.5)
+        # alter = driver.switch_to.alert
+        # result_2 = "<h1>" + alter.text + "</h1>"
+        # alter.accept()
+        return result_1
     except:
         traceback.print_exc()
         return "出现未知错误"
