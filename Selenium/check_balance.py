@@ -1,12 +1,12 @@
 import time
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from libhustpass import main
+from Selenium.libhustpass import main
 import traceback
+
 
 def get_account(account, password):
     ticket = main.doLogin(account, password, "http://ecard.m.hust.edu.cn/wechat-web/service/card_recharge.html")

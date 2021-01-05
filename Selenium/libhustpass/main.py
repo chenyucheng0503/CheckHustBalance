@@ -1,5 +1,5 @@
-import libhustpass.sbDes as sbDes
-import libhustpass.captcha as FuckCaptcha
+import Selenium.libhustpass.sbDes as sbDes
+from Selenium import libhustpass as FuckCaptcha
 import requests
 import re
 import random
@@ -31,15 +31,15 @@ def strenc(data, first_key, second_key, third_key):
         y = 0
         z = 0
         while x < len(key1_bytes):
-            enc1_ = sbDes.des(key1_bytes[x : x + 8], sbDes.ECB)
+            enc1_ = sbDes.des(key1_bytes[x: x + 8], sbDes.ECB)
             tmp = list(enc1_.encrypt(tmp))
             x += 8
         while y < len(key2_bytes):
-            enc2_ = sbDes.des(key2_bytes[y : y + 8], sbDes.ECB)
+            enc2_ = sbDes.des(key2_bytes[y: y + 8], sbDes.ECB)
             tmp = list(enc2_.encrypt(tmp))
             y += 8
         while z < len(key3_bytes):
-            enc3_ = sbDes.des(key3_bytes[z : z + 8], sbDes.ECB)
+            enc3_ = sbDes.des(key3_bytes[z: z + 8], sbDes.ECB)
             tmp = list(enc3_.encrypt(tmp))
             z += 8
         ret_.extend(tmp)
