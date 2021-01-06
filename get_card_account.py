@@ -16,8 +16,7 @@ import traceback
 # account = re.findall('<span class="red">(.*)</span></span>', ret.text)[0]
 # print(account)
 #
-#
-# rc = r.get("http://ecard.m.hust.edu.cn/wechat-web/ChZhController/ChongZhi.html?value=1,033118&cardno=208030&acctype=1")
+# rc = r.get("http://ecard.m.hust.edu.cn/wechat-web/ChZhController/ChongZhi.html?value=10,033118&cardno=208030&acctype=1")
 # print(rc.text)
 
 
@@ -60,9 +59,11 @@ def recharge(username, password, value, pwd, cardno):
         print("当前余额为" + account)
         print("当前过渡余额为" + in_account + "元 (不包括在余额中，食堂刷卡后增加)")
 
-        recharge_get = r.get(
-            "http://ecard.m.hust.edu.cn/wechat-web/ChZhController/ChongZhi.html?value=" + str(value) + "," + str(pwd) + "&cardno=" + str(cardno) + "&acctype=1")
-        print(recharge_get.text)
+        recharge_url = "http://ecard.m.hust.edu.cn/wechat-web/ChZhController/ChongZhi.html?value=" + str(value) + "," + str(pwd) + "&cardno=" + str(cardno) + "&acctype=1"
+        recharge_get = r.get(recharge_url).text.strip("callJson(").strip(" )")
+        recharge_json = json.loads(recharge_get)
+        if recharge_json['errmsg']:
+            print(recharge_json['errmsg'])
     except Exception as e:
         print(traceback.print_exc())
         pass
