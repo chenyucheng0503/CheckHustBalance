@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8fa119d-3963-4e0c-a7ef-6ae670012803" name="Default Changelist" comment="更改Request方法">
+      <change afterPath="$PROJECT_DIR$/VPS_get_card_account.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_card_account.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_card_account.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,8 @@
       <updated>1609849357530</updated>
       <workItem from="1609849360775" duration="271000" />
       <workItem from="1609850921975" duration="3961000" />
-      <workItem from="1609940476897" duration="755000" />
+      <workItem from="1609940476897" duration="1920000" />
+      <workItem from="1610025819458" duration="707000" />
     </task>
     <task id="LOCAL-00001" summary="更改Request方法">
       <created>1609862005624</created>
@@ -112,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609862017138</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="更改Request方法">
+      <created>1609941282728</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609941282728</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +143,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="更改Request方法" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CheckHustBalance$get_card_account.coverage" NAME="get_card_account Coverage Results" MODIFIED="1609941260309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CheckHustBalance$get_card_account.coverage" NAME="get_card_account Coverage Results" MODIFIED="1610025829382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
