@@ -50,8 +50,6 @@ def get_account(account, password):
         return balance
     except:
         return "出现未知错误"
-    finally:
-        driver.quit()
 
 
 @app.route('/recharge', methods=['POST'])
@@ -103,8 +101,6 @@ def recharge(account, password, amount, pwd):
     except:
         traceback.print_exc()
         return "出现未知错误"
-    finally:
-        driver.quit()
 
 
 if __name__ == "__main__":

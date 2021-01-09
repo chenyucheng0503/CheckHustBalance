@@ -25,7 +25,7 @@ def get_account(username, password):
         ticket = login(username, password, "http://ecard.m.hust.edu.cn/wechat-web/service/card_recharge.html")
         r = requests.session()
         ret = r.get(ticket)
-        account = re.findall('<span class="red">(.*)</span></span>', ret.text)[0]
+        account = re.findaz`ll('<span class="red">(.*)</span></span>', ret.text)[0]
         in_account = re.findall('<dd>(.*)元</dd>', ret.text)
         result = "当前余额为" + account + "<br></br>" + "当前过渡余额为" + in_account + "元 (不包括在余额中，食堂刷卡后增加)"
         return result
